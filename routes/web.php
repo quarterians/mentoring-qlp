@@ -44,5 +44,9 @@ Route::prefix('dev')->group(function () {
     });
 });
 
+Route::get('/formtestimonial', [TestimonialController::class, 'createtestimonial']);
+Route::post('/formtestimonial', [TestimonialController::class,'storetestimonial']);
+
+
 
 
