@@ -67,5 +67,4 @@ class TestimonialController extends Controller
         return redirect('form')->with('success','Data berhasil Ditambahkan');
     }
 
-
 }
