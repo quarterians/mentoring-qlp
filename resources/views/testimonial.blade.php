@@ -10,16 +10,16 @@
     <body>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        
-        
+
+
        </nav>
         <div class="container">
     <form method="POST" action="{{ url('formtestimonial') }}" enctype="multipart/form-data">
         @csrf
         @if (Session::has('success'))
-        <p class="alert alert-success mt-4">{{ Session::get('success') }}</p> 
+        <p class="alert alert-success mt-4">{{ Session::get('success') }}</p>
         @endif
-        
+
         <div class="form-group mt-4">
             <label for="nama">Nama Mentee</label>
             <div class="col-6 col-md-6">
@@ -50,42 +50,41 @@
         <div class="row form-group">
             <div id="form-tanggal" class="col col-md-2"><label for="select" class=" form-control-label">Nama Mentor</label></div>
             <div class="col-6 col-md-6">
-                
+
             <select name="user_id" id="user_id" class="form-control form-control-user">
                 <option value="">-PILIH-</option>
-              
+
                   <?php foreach ($rating as $datamentor) {
         ?>
-        
-        
+
         <option value ="<?php echo $datamentor->id ?>"><?php echo $datamentor->name ?></option>
-        
+
         <?php } ?>
-                
+
             </select>
             </div>
         </div>
             <br>
         <div class="row form-group">
-        
+
             <div id="form-tanggal" class="col col-md-2"><label for="select" class=" form-control-label">Expertise Mentor</label></div>
             <div class="col-6 col-md-6">
-               
+
             <select name="expertise" id="id_mentor" class="form-control form-control-user">
                 <br>
                 <option value="">-PILIH-</option>
-              
+
                   <?php foreach ($category as $expertisementor) {
         ?>
-        
-        
+
+
         {{-- <option value ="<?php echo $expertisementor->category->expertise ?>"><?php echo $expertisementor->category->expertise ?></option>
          --}}
         <option value ="<?php echo $expertisementor->expertise ?>"><?php echo $expertisementor->expertise ?></option>
-        
+
 
         <?php } ?>
-                
+
             </select>
             </div>
         </div>
@@ -93,14 +92,14 @@
         <div class="form-group ">
             <label for="nama">Skor Expertise mentor terkait insight yang diberikan selama sesi mentoring</label>
             <div class="col-6 col-md-2">
-              
+
                         <input type="radio" name="nilai1" value="1">1
                         <input type="radio" name="nilai1" value="2">2
                         <input type="radio" name="nilai1" value="3">3
                         <input type="radio" name="nilai1" value="4">4
                         <input type="radio" name="nilai1" value="5">5
-                   
-                 
+
+
         </div>
     </div>
     <br>
@@ -114,51 +113,51 @@
                 <input type="radio" name="nilai2" value="5">5
         </div>
     </div>
-        
+
     <br>
-        
-        
+
+
         <div class="form-group ">
-          
+
             <label for="nama">Tanggal dan Waktu Consulting</label>
             <br>
             <input type="datetime-local" id="birthdaytime" name="datetime_consulting">
         </div>
         <br>
         <div class="form-group ">
-          
+
             <label for="nama">Durasi Consulting</label>
             <br>
             <input type="number" id="birthdaytime" name="durasi">
         </div>
-        
+
         {{-- <div class="form-group ">
             <label for="nama">Durasi Consulting</label>
             <input type="time" id="birthdaytime" name="time">
         </div> --}}
-       
-        
+
+
         <br>
         <div class="form-group ">
             <label for="nama">  Jika kami boleh mengetahui, apa yang membuat kamu tertarik untuk mengadakan sesi consulting dengan Mentor pilihan kamu ini?</label>
-          
+
         <textarea rows="5" cols="100" name="alasan_consulting">
-            
+
             </textarea>
         </div>
         <br>
         <div class="form-group ">
             <label for="nama">     Apakah ada feedback yang ingin kamu berikan terkait sesi consulting yang telah berjalan?</label>
-          
+
             <textarea rows="5" cols="100" name="feedback">
-             
+
                 </textarea>
             </div>
             <div class="form-group ">
                 <label for="nama">Topik yang ingin diikuti kembali</label>
                 <input type="text" name="ingin_diikuti_lagi" class="form-control" value=""></textarea>
             </div>
-            
+
         <button class="btn btn-primary mt-4" type="submit">Simpan</button>
         </form>
     </div>

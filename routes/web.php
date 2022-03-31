@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TestimonialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,13 +24,13 @@ use App\Http\Controllers\UserController;
 Route::get('/', [PageController::class, 'maintenance'])->name('maintenance');
 
 Route::prefix('dev')->group(function () {
-    
+
     Auth::routes();
-    
+
     Route::get('/', [PageController::class, 'index'])->name('home');
-    
+
     Route::get('/guide', [PageController::class, 'guide'])->name('guide');
-    
+
     Route::group(['middleware' => 'auth', 'prefix' => 'settings'], function () {
         Route::get('/profile', [PageController::class, 'settingProfile'])->name('setting.profile');
         Route::get('/account', [PageController::class, 'settingAccount'])->name('setting.account');
@@ -37,7 +38,7 @@ Route::prefix('dev')->group(function () {
         Route::put('/account/{id}/edit', [UserController::class, 'updateAccount'])->name('user.updateAccount');
         Route::delete('/account/{id}/delete', [UserController::class, 'deleteAccount'])->name('user.deleteAccount');
     });
-    
+
     Route::group(['prefix' => 'mentors'], function () {
         Route::get('/', [PageController::class, 'mentors'])->name('mentors');
         Route::get('/detail/{id}', [PageController::class, 'mentorDetail'])->name('mentorDetail');
