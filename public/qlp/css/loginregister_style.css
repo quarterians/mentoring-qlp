@@ -1,0 +1,73 @@
+.link_kembali {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.back {
+  margin-right: 20px;
+}
+
+.header_title {
+  color: black;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.login_text {
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 60px;
+}
+
+#resetPass {
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+}
+
+.btn {
+  text-align: center;
+  border-radius: 10px;
+  padding: 14px;
+  color: white;
+  background: #fc6b56;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-size: 16px;
+  box-shadow: 0 9px 18px #f3adae;
+  margin-top: 43px;
+}
+
+.signup_text {
+  text-decoration: none;
+  color: #fc6b56;
+}
+
+.img_bg {
+  position: relative;
+}
+
+.img_vector {
+  position: absolute;
+  top: 122px;
+  width: 45%;
+  margin-left: 60px;
+}
+
+.form-control {
+  background-color: #efefef;
+  border-radius: 15px;
+  height: 60px;
+  border: none;
+}

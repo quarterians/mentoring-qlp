@@ -61,4 +61,16 @@ class PageController extends Controller
         $user = Auth::user();
         return view('settings.account', compact('user'));
     }
+
+    //qlp
+
+    public function searchmentor()
+    {                
+        return view('qlp.searchmentor');        
+    }
+
+    public function e_formreview()
+    {                
+        return view('qlp.e_formreview');        
+    }
 }

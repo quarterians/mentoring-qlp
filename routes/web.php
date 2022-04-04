@@ -45,10 +45,17 @@ Route::prefix('dev')->group(function () {
     });
 });
 
+Route::get('/login', function () {
+    return view('qlp.login');
+});
+Route::get('/register', function () {
+    return view('qlp.register');
+});
+
 Route::get('/formtestimonial', [TestimonialController::class, 'createtestimonial']);
 Route::post('/formtestimonial', [TestimonialController::class,'storetestimonial']);
 
-
-
+Route::get('/searchmentor', [PageController::class, 'searchmentor'])->name('searchmentor');
+Route::get('/e_formreview', [PageController::class, 'e_formreview'])->name('e_formreview');
 
 
