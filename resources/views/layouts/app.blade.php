@@ -30,6 +30,8 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="{{ asset('/css/style-rama.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/css/profile_style.css') }}" />
+
 
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

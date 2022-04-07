@@ -46,8 +46,18 @@ Route::prefix('dev')->group(function () {
 
     Route::get('/FAQ', function () {
         return view('FAQ.index');
-        // return view('layouts.forFAQ');
     });
+
+    // find mentor based on preferred category
+    Route::get('/findmentor', function () {
+        return view('qlp.searchmentor');
+    });
+
+    // HALAMAN DETAIL MENTOR
+    Route::get('/mentor', function () {
+        return view('mentor.index');
+    });
+
 });
 
 Route::get('/login', function () {
