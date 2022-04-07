@@ -43,6 +43,11 @@ Route::prefix('dev')->group(function () {
         Route::get('/', [PageController::class, 'mentors'])->name('mentors');
         Route::get('/detail/{id}', [PageController::class, 'mentorDetail'])->name('mentorDetail');
     });
+
+    Route::get('/FAQ', function () {
+        return view('FAQ.index');
+        // return view('layouts.forFAQ');
+    });
 });
 
 Route::get('/login', function () {
