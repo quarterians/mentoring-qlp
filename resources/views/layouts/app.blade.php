@@ -29,8 +29,13 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="{{ asset('/css/style-rama.css') }}" />
-    <link rel="stylesheet" href="{{ asset('/css/profile_style.css') }}" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    
+    <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
+    
 
 
     <!-- Scripts -->
@@ -44,6 +49,9 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('/css/style-rama.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/css/profile_style.css') }}" />
+    <link href="{{ asset('/qlp/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/jquery.qeditor.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
@@ -112,7 +120,7 @@
             }
 
             #jumbotron-heading {
-                font-size: 50px;
+                font-size: 45px;
             }
         }
 
@@ -155,90 +163,64 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <header class="navbar bg-white header">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('img/logo.png') }}" alt="QLP Logo" style="width:40px">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->                                             
-                    <ul class="navbar-nav mr-auto">                                                                     
-                        <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="{{ route('home') }}">Home</a>                                
-                        </li>    
-                        <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="{{ route('mentors') }}">Mentors</a>
-                        </li>                        
-                        <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="{{ route('guide') }}">Guides</a>
-                        </li>                        
-                    @auth      
-                        <li class="nav-item nav-item-mobile">
-                            <a class="nav-link font-weight-bold" href="{{ route('setting.profile') }}">Edit Profil</a>
-                        </li>    
-                        <li class="nav-item nav-item-mobile">
-                            <a class="nav-link font-weight-bold" href="{{ route('setting.account') }}">Edit Akun</a>
-                        </li>                                                                    
-                    @endauth
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link font-weight-bold" href="{{ route('login') }}"><button class="btn btn-danger text-light" style="width:80px">Masuk</button></a>
-                            </li>                                                      
-                        @else
-                            <li class="nav-item nav-item-mobile">                                
-                                <a class="nav-link font-weight-bold" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                    <button class="btn btn-primary text-light" style="width:80px">Log Out</button>
-                                </a>                                    
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>                                
-                            </li>
-
-                            <li class="nav-item nav-item-dekstop dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    @if(!is_null(Auth::user()->profile_picture))
-                                        <img src="{{ asset('img/uploads/'.Auth::user()->profile_picture ) }}" alt="Foto profil" style="border-radius: 50%; width:40px">
-                                    @else
-                                        <img src="{{ asset('img/user.png') }}" alt="Foto profil" style="border-radius: 50%; width:40px">                        
-                                    @endif
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('mentorDetail', Auth::user()->id) }}">Profil</a>
-                                    <a class="dropdown-item" href="{{ route('setting.profile') }}">Pengaturan</a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+                <div class="flex justify-between align-items-center">
+                    <div class="flex align-items-center">
+                        <!-- <div class="logo">
+                            <img src="{{ asset('/qlp/img/qlp_logo.png') }}" alt="" class="">
+                        </div> -->
+                        <a class="navbar-brand" href="{{ url('/') }}">
+                            <img src="{{ asset('/qlp/img/qlp_logo.png') }}" alt="QLP Logo">
+                        </a>
+                        <div class="ms-3">
+                            <ul class="nav">
+                                <li class="nav-item">
+                                    <a href="index.html" class="text-dark fw-semibold">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" class="text-dark fw-semibold">About Us <i class="fas ms-1 fa-caret-down"></i></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" class="text-dark fw-semibold active">Consulting</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" class="text-dark fw-semibold">Guide <i class="fas ms-1 fa-caret-down"></i></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" class="text-dark fw-semibold">FAQ</a>
+                                </li>
+                                @auth      
+                                <li class="nav-item nav-item-mobile">
+                                    <a class="nav-link font-weight-bold" href="{{ route('setting.profile') }}">Edit Profil</a>
+                                </li>    
+                                <li class="nav-item nav-item-mobile">
+                                    <a class="nav-link font-weight-bold" href="{{ route('setting.account') }}">Edit Akun</a>
+                                </li>                                                                    
+                                @endauth
+                            </ul>
+                        </div>
+                    </div>
+                    @guest
+                    <div class="mt-sm-2 pb-sm-2 w-sm-100">
+                        <a href="{{ route('login') }}" class="btn shadow-sm text-center fw-semibold w-sm-100 align-items-end">Menjadi Mentor</a>
+                    </div>
+                    @else
+                    <div class="mt-sm-2 pb-sm-2 w-sm-100">
+                        <a href="{{ route('logout') }}" class="btn shadow-sm text-center fw-semibold w-sm-100" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log Out</a>
+                    </div>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form> 
+                    @endguest
                 </div>
             </div>
-        </nav>
+        </header>
 
         @if (Request::is('mentors/*') || Request::is('home') || Request::is('login') || Request::is('register'))
             <main>    
         @else
-            <main class="py-4">
+            <main class="py-4" style="padding-top: 0 !important; padding-bottom: 0 !important">
         @endif                
             @yield('content')
         </main>        
@@ -276,3 +258,4 @@
     });
   });
 </script>
+@yield('js')

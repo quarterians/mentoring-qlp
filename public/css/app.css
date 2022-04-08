@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 @import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700');
 @charset "UTF-8";
 /*!
  * Bootstrap v4.6.1 (https://getbootstrap.com/)
@@ -4825,16 +4826,17 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .jumbotron {
   padding: 2rem 1rem;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
   /* background-color: #e9ecef; */
-  background-image: url("../img/background-jumbotron.png");
-  background-color: #FFF9F1;
+  /* background-image: url("../img/background-jumbotron.png"); */
+  background-color: #FFF6E9;
   background-size: cover;
-  border-radius: 0.3rem;
+  font-family: "Montserrat", "sans-serif";
+  
 }
 @media (min-width: 576px) {
   .jumbotron {
-    padding: 4rem 2rem;
+    padding: 8rem 2rem;
   }
 }
 
@@ -4844,12 +4846,124 @@ a.badge-dark:focus, a.badge-dark.focus {
   border-radius: 0;
 }
 
+.star-outer {
+  position: relative;
+  display: inline-block;
+}
+
+.star-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+.star-outer::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #ccc;
+}
+
+.star-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #f8ce0b;
+}
+
 .alert {
   position: relative;
   padding: 0.75rem 1.25rem;
   margin-bottom: 1rem;
   border: 1px solid transparent;
   border-radius: 0.25rem;
+}
+
+#keunggulan{
+  font-family: "Montserrat", sans-serif;
+  color: var(--primary);
+}
+
+#keunggulan p{
+  font-size: 24px;
+  color:rgba(0, 0, 0, 0.5);
+}
+
+#mentor-bantu{
+  font-family: "Montserrat", sans-serif;
+  background-color: #D7EFF8;
+  background-size: cover;
+}
+
+#kerja-sama{
+  font-family: "Montserrat", sans-serif;
+  color: var(--primary);
+}
+
+#mentor-kategori{
+  font-family: "Montserrat", sans-serif;
+  background-color: #FED3CC;
+}
+
+#kata-mereka{
+  font-family: "Montserrat", sans-serif;
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+
+#kata-mereka h1{
+  color: var(--primary);
+  font-size: 45px;
+}
+
+#kata-mereka .card .image{
+  height: 140px;
+  width: 140px;
+  border-radius: 50%;
+}
+
+#kata-mereka .card .image img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+#kata-mereka .profile{
+  text-align: center;
+}
+
+#kata-mereka .testi{
+  text-align: center;
+}
+
+#kata-mereka .profile .name{
+  color: #34778F;
+  font-size: 20px;
+}
+
+.card{
+  border-radius: 20px;
+  width: 400px;
+  height: auto;
+  background-color: #FFF6E9;
+  border: 0px;
+  /* box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); */
+}
+
+.card .card-content{
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  align-items: center ;
+}
+
+.testi{
+  font-size: 13px;
 }
 
 .alert-heading {
