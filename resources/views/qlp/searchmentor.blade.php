@@ -1,24 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quarter Life Project</title>
-    <!-- <link rel="stylesheet" href="qlp/css/style.css"> -->
-    <link href="{{ asset('/qlp/css/style.css') }}" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-            integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
-
-    @include('qlp.navbar')
-
+@extends('layouts.app')
+@section('content')
     <section class="text-dark bg-bubble text-center mentor-section">
         <div class="container">
             <h1 class="text-leading mb-2">Temukan mentormu sekarang!</h1>
@@ -56,27 +37,28 @@
                     <div class="text-24 fw-semibold">Filter Mentor:</div>
                 </div>
                 <div class="w-15vw ms-3">
-                    <select class="select-filter" id="" name="kategori">
+                    <select class="select-filter" id="kategori" name="kategori">
                         <option value="">Semua Kategori</option>
-                        @foreach ($categories->unique('kategori') as $kategori)
-                            <option value=""> </option>
+                        @isset($pillars)
+                        @foreach ($pillars->unique('id') as $pillar)
+                            <option value="{{$pillar->id}}">{{$pillar->pillar}}</option>
                         @endforeach
-                    </select>
-                </div>
-                <div class="w-15vw ms-3" name="sub_kategori">
-                    <select class="select-filter" id="">
-                        <option value="">Semua Sub Kategori</option>
-                        @foreach ($categories->unique('sub_kategori') as $sub_kategori)
-                            <option value=""> </option>
-                        @endforeach
+                        @endisset
                     </select>
                 </div>
                 <div class="w-15vw ms-3">
-                    <select class="select-filter" id="" name="jurusan">
+                    <select class="select-filter" id="subkategori" name="sub_kategori">
+                        <option value="">Semua Sub Kategori</option>
+                    </select>
+                </div>
+                <div class="w-15vw ms-3">
+                    <select class="select-filter" id="jurusan" name="jurusan">
                         <option value="">Semua Jurusan</option>
-                        @foreach ($categories->unique('jurusan') as $jurusan)
-                            <option value=""> </option>
+                        @isset($jurusan)
+                        @foreach ($jurusan->unique('id') as $jurusan)
+                            <option value="{{$jurusan->id}}">{{$jurusan->jurusan}}</option>
                         @endforeach
+                        @endisset
                     </select>
                 </div>
             </div>
@@ -280,7 +262,36 @@
             </div>
         </div>
     </section>
-    
-    @include('qlp.footer')
-</body>
-</html>
+    <script type="text/javascript">
+        jQuery(document).ready(function()
+        {
+            jQuery('select[name="kategori"]').on('change', function()
+            {
+                var pillarID = jQuery('select[name="kategori"]').val();
+                //console log = printf
+                var url = '/subcategory/' + pillarID;
+                alert(url);
+                if(pillarID)
+                {
+                    jQuery.ajax({
+                        type : "GET",
+                        url : url,
+                        success:function(data) {
+                            console.log(data);
+                            data = JSON.parse(data);
+                            $('#subkategori').empty();
+                            $('#subkategori').append('<option value="">Semua Sub Kategori</option>');
+                            $.each(data, function(key, value){
+                                console.log(value['id']);
+                                $('#subkategori').append("<option value=" + value["id"] + ">" + value["expertise"] + "</option>");
+                            });
+                            // $.each(data, function(key, value)){
+                            //     $("#subkategori").append('<option value=""></option>')
+                            // }
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+@endsection

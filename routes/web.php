@@ -73,6 +73,7 @@ Route::get('/formtestimonial', [TestimonialController::class, 'createtestimonial
 Route::post('/formtestimonial', [TestimonialController::class,'storetestimonial']);
 
 Route::get('/searchmentor', [PageController::class, 'searchmentor'])->name('searchmentor');
+Route::get('/subcategory/{pillar_id}', [PageController::class, 'subcategory']);
 Route::get('/e_formreview', [PageController::class, 'e_formreview'])->name('e_formreview');
 
 
