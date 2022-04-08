@@ -68,7 +68,7 @@ body {
   }
 
   #jumbotron-heading {
-      font-size: 50px;
+      font-size: 45px;
   }
 }
 
@@ -117,10 +117,15 @@ footer {
   /* height:80px; */
   padding-top: 60px;
   background:#34778F;
-  text-align: center;
+  text-align: left;
   color: white;            
-  font-weight: 500;   
-}    
+  font-weight: 500;
+  text-decoration: none !important;
+}
+
+footer .text-semi:hover{
+  color: #fff;
+}
 
 .banner-footer {
   margin-bottom: 220px;

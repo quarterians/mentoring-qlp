@@ -57,112 +57,10 @@
     <link href="{{ asset('/css/jquery.qeditor.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
 
-
-<<<<<<< HEAD
-            .mentor-card .card-text {
-                padding-left: 0.8rem;                
-            }   
-            
-            .mentor-description {
-                display: none;
-            }
-        }
-
-        @media screen and (min-width: 451px) {
-            .mentor-card img {
-                width: 120px;
-                margin-bottom: 0.3rem;                
-            }                                           
-        }
-
-        @media screen and (max-width: 576px) {           
-            .mentor-card .card-text {
-                padding-left: 0.8rem;                
-            }                 
-            
-            .mentor-card .card-body {
-                display: grid;                
-                grid-template-columns: 0.5fr 1fr;                
-            }            
-        }
-
-        @media screen and (min-width: 577px) {           
-            .mentor-card {
-                width: 230px;
-                height: 320px;
-            }
-
-            .nav-pill-kategori-title {
-                display: none;                
-            }
-        }
-
-        @media screen and (max-width: 768px) {
-            #nav-setting {
-                display: none;
-            }
-
-            .nav-item-dekstop {
-                display: none;                
-            }                                
-        }
-
-        @media screen and (min-width: 768px) {
-            .nav-item-mobile {
-                display: none;
-            }
-            
-            .benefit-list {
-                padding-top: 2rem;
-            }
-
-            #jumbotron-heading {
-                font-size: 45px;
-            }
-        }
-
-        @media screen and (max-width: 992px) {
-            .img-home {
-                display: none;
-            }  
-        }
-
-
-        @media screen and (max-width: 1200px) {
-            #login-image {
-                display: none;
-            }
-            
-            .badge-expertise {
-                display: none;
-            }
-            
-            .mentor-detail-jumbotron-about {
-                text-align: center;
-                margin: 1rem 0;
-            }
-        }
-
-        footer {            
-            bottom:0;
-            width:100%;
-            height:80px;
-            background:#2A5F72;
-            text-align: center;
-            color: white;            
-            font-weight: 500;                   
-        }    
-        
-        main {
-            min-height: 100vh;
-        }        
-    </style>
-=======
->>>>>>> 1cef89e5b0a7e0334dfd78636da2fdf763f28123
 </head>
 <body>
     <div id="app">
-        <header class="navbar bg-white header">
+        <header class="bg-white header">
             <div class="container">
                 <div class="flex justify-between align-items-center">
                     <div class="flex align-items-center">
@@ -175,19 +73,19 @@
                         <div class="ms-3">
                             <ul class="nav">
                                 <li class="nav-item">
-                                    <a href="index.html" class="text-dark fw-semibold">Home</a>
+                                    <a href="{{ url('/dev') }}" class="text-dark fw-semibold active">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="" class="text-dark fw-semibold">About Us <i class="fas ms-1 fa-caret-down"></i></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="" class="text-dark fw-semibold active">Consulting</a>
+                                    <a href="" class="text-dark fw-semibold">Consulting</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="" class="text-dark fw-semibold">Guide <i class="fas ms-1 fa-caret-down"></i></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="" class="text-dark fw-semibold">FAQ</a>
+                                    <a href="{{ url('/dev/FAQ') }}" class="text-dark fw-semibold">FAQ</a>
                                 </li>
                                 @auth      
                                 <li class="nav-item nav-item-mobile">
@@ -202,7 +100,7 @@
                     </div>
                     @guest
                     <div class="mt-sm-2 pb-sm-2 w-sm-100">
-                        <a href="{{ route('login') }}" class="btn shadow-sm text-center fw-semibold w-sm-100 align-items-end">Menjadi Mentor</a>
+                        <a href="{{ route('login') }}" class="btn btn-primary shadow-sm text-center fw-semibold w-sm-100 align-items-end">Menjadi Mentor</a>
                     </div>
                     @else
                     <div class="mt-sm-2 pb-sm-2 w-sm-100">
@@ -224,7 +122,8 @@
             @yield('content')
         </main>        
 
-        <footer>
+        @include('qlp.footer')
+        <!-- <footer>
 
             {{-- <p><b>QUARTER LIFE PROJECTS TEAM</b><br>Copyright © 2021 Quarter Life Projects</p> --}}
 
@@ -347,7 +246,7 @@
                
             </div>
 
-        </footer>
+        </footer> -->
     </div>    
 </body>
 </html>

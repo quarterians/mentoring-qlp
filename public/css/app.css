@@ -64,7 +64,7 @@ body {
   line-height: 1.6;
   color: #212529;
   text-align: left;
-  background-color: #ffffff;
+  background-color: #F5F5F5;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -9921,6 +9921,10 @@ button.bg-dark:focus {
 
 .font-weight-normal {
   font-weight: 400 !important;
+}
+
+.font-weight-semi {
+  font-weight: 600 !important;
 }
 
 .font-weight-bold {

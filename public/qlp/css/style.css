@@ -5,7 +5,7 @@
 
 :root {
   --dark: #333;
-  --orange: #fc6b56;
+  --orange: #FC6B56;
   --light: #fff;
   --silver: #f2f2f2;
   --container: 140px;
@@ -22,7 +22,7 @@ body {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .icon-sosmed {
@@ -76,7 +76,7 @@ a {
 }
 
 .text-green {
-  color: var(--green);
+  color: #34778F;
 }
 
 .text-center {
@@ -148,7 +148,11 @@ a {
 }
 
 .nav .active {
-  color: var(--orange);
+  color: var(--orange) !important;
+}
+
+.nav .active:hover {
+  color: var(--orange) !important;
 }
 
 .mt-1 {
