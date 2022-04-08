@@ -8,6 +8,30 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Mentoring QLP</title>
+    {{-- Bootstrap --}}
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    rel="stylesheet" 
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
+    crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="{{ asset('/css/style-rama.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/css/profile_style.css') }}" />
+
 
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -244,3 +268,31 @@
     </div>    
 </body>
 </html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+  const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
+
+  accordionItemHeaders.forEach(accordionItemHeader => {
+    accordionItemHeader.addEventListener("click", event => {
+      
+      // Uncomment in case you only want to allow for the display of only one collapsed item at a time!
+      
+      // const currentlyActiveAccordionItemHeader = document.querySelector(".accordion-item-header.active");
+      // if(currentlyActiveAccordionItemHeader && currentlyActiveAccordionItemHeader!==accordionItemHeader) {
+      //   currentlyActiveAccordionItemHeader.classList.toggle("active");
+      //   currentlyActiveAccordionItemHeader.nextElementSibling.style.maxHeight = 0;
+      // }
+
+      accordionItemHeader.classList.toggle("active");
+      const accordionItemBody = accordionItemHeader.nextElementSibling;
+      if(accordionItemHeader.classList.contains("active")) {
+        accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+      }
+      else {
+        accordionItemBody.style.maxHeight = 0;
+      }
+      
+    });
+  });
+</script>

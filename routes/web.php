@@ -43,6 +43,21 @@ Route::prefix('dev')->group(function () {
         Route::get('/', [PageController::class, 'mentors'])->name('mentors');
         Route::get('/detail/{id}', [PageController::class, 'mentorDetail'])->name('mentorDetail');
     });
+
+    Route::get('/FAQ', function () {
+        return view('FAQ.index');
+    });
+
+    // find mentor based on preferred category
+    Route::get('/findmentor', function () {
+        return view('qlp.searchmentor');
+    });
+
+    // HALAMAN DETAIL MENTOR
+    Route::get('/mentor', function () {
+        return view('mentor.index');
+    });
+
 });
 
 Route::get('/login', function () {
