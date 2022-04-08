@@ -73,4 +73,28 @@ class PageController extends Controller
     {                
         return view('qlp.e_formreview');        
     }
+
+    public function filterMentor(Request $request)
+    {
+        $categories = Category::query();
+
+        if ($request->has('kategori'))
+        {
+            $categories = Category::where('kategori', $request->kategori);
+        }
+
+        if ($request->has('sub_kategori'))
+        {
+            $categories = Category::where('sub_kategori', $request->sub_kategori);
+        }
+
+        if ($request->has('jurusan'))
+        {
+            $categories = Category::where('jurusan', $request->jurusan);
+        }
+
+        $categories = $categories->get();
+
+        return view('qlp.searchmentor', compact('categories'));
+    }
 }

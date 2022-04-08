@@ -49,9 +49,11 @@ Route::prefix('dev')->group(function () {
     });
 
     // find mentor based on preferred category
-    Route::get('/findmentor', function () {
-        return view('qlp.searchmentor');
-    });
+    // Route::get('/findmentor', function () {
+    //     return view('qlp.searchmentor');
+    // });
+
+    Route::get('/findmentor', [PageController::class, 'filterMentor'])->name('filterMentor');
 
     // HALAMAN DETAIL MENTOR
     Route::get('/mentor', function () {

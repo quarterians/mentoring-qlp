@@ -56,18 +56,27 @@
                     <div class="text-24 fw-semibold">Filter Mentor:</div>
                 </div>
                 <div class="w-15vw ms-3">
-                    <select class="select-filter" id="">
+                    <select class="select-filter" id="" name="kategori">
                         <option value="">Semua Kategori</option>
+                        @foreach ($categories->unique('kategori') as $kategori)
+                            <option value=""> </option>
+                        @endforeach
                     </select>
                 </div>
-                <div class="w-15vw ms-3">
+                <div class="w-15vw ms-3" name="sub_kategori">
                     <select class="select-filter" id="">
                         <option value="">Semua Sub Kategori</option>
+                        @foreach ($categories->unique('sub_kategori') as $sub_kategori)
+                            <option value=""> </option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="w-15vw ms-3">
-                    <select class="select-filter" id="">
+                    <select class="select-filter" id="" name="jurusan">
                         <option value="">Semua Jurusan</option>
+                        @foreach ($categories->unique('jurusan') as $jurusan)
+                            <option value=""> </option>
+                        @endforeach
                     </select>
                 </div>
             </div>
