@@ -21,113 +21,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('/css/styles.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/jquery.qeditor.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
 
-    <style>
-        @media screen and (max-width: 450px) {
-            .mentor-card img {
-                width: 80px;                
-            } 
 
-            .mentor-card .card-text {
-                padding-left: 0.8rem;                
-            }   
-            
-            .mentor-description {
-                display: none;
-            }
-        }
-
-        @media screen and (min-width: 451px) {
-            .mentor-card img {
-                width: 120px;
-                margin-bottom: 0.3rem;                
-            }                                           
-        }
-
-        @media screen and (max-width: 576px) {           
-            .mentor-card .card-text {
-                padding-left: 0.8rem;                
-            }                 
-            
-            .mentor-card .card-body {
-                display: grid;                
-                grid-template-columns: 0.5fr 1fr;                
-            }            
-        }
-
-        @media screen and (min-width: 577px) {           
-            .mentor-card {
-                width: 230px;
-                height: 320px;
-            }
-
-            .nav-pill-kategori-title {
-                display: none;                
-            }
-        }
-
-        @media screen and (max-width: 768px) {
-            #nav-setting {
-                display: none;
-            }
-
-            .nav-item-dekstop {
-                display: none;                
-            }                                
-        }
-
-        @media screen and (min-width: 768px) {
-            .nav-item-mobile {
-                display: none;
-            }
-            
-            .benefit-list {
-                padding-top: 2rem;
-            }
-
-            #jumbotron-heading {
-                font-size: 50px;
-            }
-        }
-
-        @media screen and (max-width: 992px) {
-            .img-home {
-                display: none;
-            }  
-        }
-
-
-        @media screen and (max-width: 1200px) {
-            #login-image {
-                display: none;
-            }
-            
-            .badge-expertise {
-                display: none;
-            }
-            
-            .mentor-detail-jumbotron-about {
-                text-align: center;
-                margin: 1rem 0;
-            }
-        }
-
-        footer {            
-            bottom:0;
-            width:100%;
-            height:80px;
-            background:#2A5F72;
-            text-align: center;
-            color: white;            
-            font-weight: 500;                   
-        }    
-        
-        main {
-            min-height: 100vh;
-        }        
-    </style>
 </head>
 <body>
     <div id="app">
@@ -218,8 +116,130 @@
         @endif                
             @yield('content')
         </main>        
-        <footer class="py-3">
-            <p><b>QUARTER LIFE PROJECTS TEAM</b><br>Copyright © 2021 Quarter Life Projects</p>
+
+        <footer>
+
+            {{-- <p><b>QUARTER LIFE PROJECTS TEAM</b><br>Copyright © 2021 Quarter Life Projects</p> --}}
+
+            {{-- <div class="row mt-3"> --}}
+
+            <div class="container">
+
+                <div class="row banner-footer">
+                    {{-- LOGO QLP FOOTER --}}
+                    <div class="col">
+                        <div class="row">
+                            <img src="{{ asset('img/logo.png') }}" alt="QLP Logo" style="width:60px">
+                            <span id="footer-title">Quarter Life Projects</span>
+                            <p class="text-white text-left">
+                                Platform sosial yang didirikan pada 27 Maret 2021 
+                                dengan misi untuk menjadi sistem pendukung bagi generasi Z 
+                                selama masa Quarter Life Crisis mereka. 
+                            </p>
+                        </div>
+                    
+                        <div class="row">
+                            <label><strong>Email</strong></label>
+                            <p class="text-white">quarterlife.projects@gmail.com </p>
+                        </div>
+                        <div class="row">
+                            <label><strong>Contact Us</strong></label>
+                            {{-- logonya socialsnya mana??? --}}
+                        </div>
+                    </div>
+
+                    {{-- ABOUT US --}}
+                    <div class="col mt-3">
+                        <div class="row">
+                            <label class="label-footer-header"><strong>About Us</strong></label>
+
+                            <ul class="list-footer-menu">
+                                <li>
+                                    <a href="#!" class="nav-link text-white">Visi</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="nav-link text-white">Misi</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="nav-link text-white">QLP Pilar</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="nav-link text-white">Meet Our Team</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    {{-- PROGRAM --}}
+                    <div class="col mt-3">
+                        <div class="row">
+                            <label class="label-footer-header"><strong>Program</strong></label>
+                        </div>
+                        <div class="row">
+                            <ul class="list-footer-menu">
+                                <li>
+                                    <a href="#!" class="nav-link text-white">Weekly Webinar</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="nav-link text-white">Quarterlife Mentoring</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    {{-- PARTNERSHIP --}}
+                    <div class="col mt-3">
+                        <div class="row">
+                            <label class="label-footer-header"><strong>Partnership</strong></label>
+                        </div>
+                        <div class="row">
+                            <ul class="list-footer-menu">
+                                <li>
+                                    <a href="#!" class="nav-link text-white">Informasi Partnership</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    {{-- BANTUAN --}}
+                    <div class="col mt-3">
+                        <div class="row">
+                            <label class="label-footer-header"><strong>Bantuan</strong></label>
+                        </div>
+                        <div class="row">
+                            <ul class="list-footer-menu">
+                                <li>
+                                    <a href="#!" class="nav-link text-white">FAQ</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="nav-link text-white">Guide</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                
+            </div>
+            
+            {{-- </div> --}}
+
+            <div class="sub-footer">
+                <div class="p-4">
+                    <div class="row justify-content-center">
+                        <small class="text-center text-white">
+                            QUARTER LIFE PROJECTS TEAM
+                        </small>
+                    </div>
+                    <div class="row justify-content-center">
+                        <small class="text-center text-white">
+                            Copyright © Quarterians 2022 Quarter Life Projects
+                        </small>
+                    </div>
+                </div>
+               
+            </div>
+
         </footer>
     </div>    
 </body>
