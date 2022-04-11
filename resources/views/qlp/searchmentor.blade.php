@@ -78,23 +78,25 @@
     <section class="mentor-list py-8">
         <div class="container">
             <div class="grid-4">
+                @foreach($user as $key => $user)
                 <div class="card text-center">
                     <div class="card-body">
-                        <img src="{{ asset('/qlp/img/1.png') }}" alt="" class="">
+                        <img src="{{ Storage::url($user->profile_picture) }}" alt="" class="">
                         <div class="mt-4">
-                            <div class="fw-bold text-24">Irvan Tantowi</div>
-                            <div class="fw-normal text-20 mt-1">UI/UX Designer</div>
+                            <div class="fw-bold text-24">{{ $user-> name}}</div>
+                            <div class="fw-normal text-20 mt-1"> </div>
                             <div class="mt-3">
                                 <small>Total Session</small>
                             </div>
-                            <div class="fw-normal text-20 mt-1">5 Sessions</div>
+                            <div class="fw-normal text-20 mt-1">{{ $user->session_hour}}</div>
                             <div class="" style="margin-top: 5em;">
                                 <a href="" class="btn text-16 fw-normal">View Profile</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="card text-center">
+                @endforeach
+                <!-- <div class="card text-center">
                     <div class="card-body">
                         <img src="{{ asset('/qlp/img/2.png') }}" alt="" class="">
                         <div class="mt-4">
@@ -269,7 +271,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
