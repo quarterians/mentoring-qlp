@@ -106,6 +106,9 @@ class PageController extends Controller
 
         // $categories = $categories->get();
 
-        // return view('qlp.searchmentor', compact('categories'));
+        //cari mentor
+        $user = User::where('name', 'like', '%' . $request->search . '%')->get();
+
+        return view('qlp.searchmentor', compact('user'));
     }
 }

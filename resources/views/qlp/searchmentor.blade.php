@@ -9,61 +9,72 @@
             </div>
         </div>
     </section>
-    <section class="search py-4">
-        <div class="container">
-            <div class="flex-search align-items-center">
-                <div class="text-24 fw-semibold">Cari Mentor :</div>
-                <div class="ms-4 search-mentor-width">
-                    <div class="box-search flex align-items-center">
-                        <div class="">
-                            <i class="text-16 fa fa-search"></i>
-                        </div>
-                        <div class="ms-2 w-100">
-                            <input type="text" class="form" placeholder="Search" id="">
+    <form action="" id="form-filtering">
+        <section class="search py-4">
+            <div class="container">
+                <div class="flex-search align-items-center">
+                    <div class="text-24 fw-semibold">Cari Mentor :</div>
+                    <div class="ms-4 search-mentor-width">
+                        <div class="box-search flex align-items-center">
+                            <div class="">
+                                <i class="text-16 fa fa-search"></i>
+                            </div>
+                            <form action="/searchmentor" method="GET">
+                                <div class="ms-2 w-100">
+                                    <input type="text" class="form" placeholder="Search" name=search>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                </div>
-                <div class="text-24 ms-5 fw-semibold search-all-width">Cari Semua Mentor :</div>
-                <div class="">
-                    <a href="" class="btn shadow-sm fw-semibold">Cari Semua</a>
+                    <div class="text-24 ms-5 fw-semibold search-all-width">Cari Semua Mentor :</div>
+                    <div class="">
+                        <button class="btn shadow-sm fw-semibold" onchange="sorting()">Cari Semua</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="filter">
-        <div class="container">
-            <div class="flex align-items-center">
-                <div class="">
-                    <div class="text-24 fw-semibold">Filter Mentor:</div>
-                </div>
-                <div class="w-15vw ms-3">
-                    <select class="select-filter" id="kategori" name="kategori">
-                        <option value="">Semua Kategori</option>
-                        @isset($pillars)
-                        @foreach ($pillars->unique('id') as $pillar)
+        </section>
+        <section class="filter">
+            <div class="container">
+                <div class="flex align-items-center">
+                    <div class="">
+                        <div class="text-24 fw-semibold">Filter Mentor:</div>
+                    </div>
+                    <div class="w-15vw ms-3">
+                        <select class="select-filter" id="kategori" name="kategori">
+                            <option value="">Semua Kategori</option>
+                            @isset($pillars)
+                            @foreach ($pillars->unique('id') as $pillar)
                             <option value="{{$pillar->id}}">{{$pillar->pillar}}</option>
-                        @endforeach
-                        @endisset
-                    </select>
-                </div>
-                <div class="w-15vw ms-3">
-                    <select class="select-filter" id="subkategori" name="sub_kategori">
-                        <option value="">Semua Sub Kategori</option>
-                    </select>
-                </div>
-                <div class="w-15vw ms-3">
-                    <select class="select-filter" id="jurusan" name="jurusan">
-                        <option value="">Semua Jurusan</option>
-                        @isset($jurusan)
-                        @foreach ($jurusan->unique('id') as $jurusan)
+                            @endforeach
+                            @endisset
+                        </select>
+                    </div>
+                    <div class="w-15vw ms-3">
+                        <select class="select-filter" id="subkategori" name="sub_kategori">
+                            <option value="">Semua Sub Kategori</option>
+                        </select>
+                    </div>
+                    <div class="w-15vw ms-3">
+                        <select class="select-filter" id="jurusan" name="jurusan">
+                            <option value="">Semua Jurusan</option>
+                            @isset($jurusan)
+                            @foreach ($jurusan->unique('id') as $jurusan)
                             <option value="{{$jurusan->id}}">{{$jurusan->jurusan}}</option>
-                        @endforeach
-                        @endisset
-                    </select>
+                            @endforeach
+                            @endisset
+                        </select>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <script>
+            function sorting()
+            {
+                document.querySelector('#form-filtering').submit();
+            }
+        </script>
+    </form>
     <section class="mentor-list py-8">
         <div class="container">
             <div class="grid-4">
