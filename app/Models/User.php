@@ -57,7 +57,7 @@ class User extends Authenticatable
 
     public function expertise()
     {
-        return $this->hasMany(Expertise::class);
+        return $this->belongsToMany(Expertise::class);
     }
 
     public function jurusan(){

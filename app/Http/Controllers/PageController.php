@@ -69,14 +69,18 @@ class PageController extends Controller
     public function subcategory($pillar_id)
     {
         $subcategories = Expertise::where('pillar_id', $pillar_id)->get();
-        return json_encode($subcategories);
+
+        return $subcategories;
     }
 
-    public function searchmentor()
+    public function searchmentor(Request $request)
     {
         $pillars = Pillar::all();
         $jurusan = Jurusan::all();
-        return view('qlp.searchmentor', compact('pillars', 'jurusan'));
+        
+        $user = User::where('name', 'like', '%' . $request->search . '%')->get();
+
+        return view('qlp.searchmentor', compact('pillars', 'jurusan', 'user'));
     }
 
 
@@ -85,30 +89,29 @@ class PageController extends Controller
         return view('qlp.e_formreview');
     }
 
-    public function filterMentor(Request $request)
-    {
-        // $categories = Category::query();
+    // public function filterMentor(Request $request)
+    // {
+    //     $categories = Category::query();
 
-        // if ($request->has('kategori'))
-        // {
-        //     $categories = Category::where('kategori', $request->kategori);
-        // }
+    //     if ($request->has('kategori'))
+    //     {
+    //         $categories = Category::where('kategori', $request->kategori);
+    //     }
 
-        // if ($request->has('sub_kategori'))
-        // {
-        //     $categories = Category::where('sub_kategori', $request->sub_kategori);
-        // }
+    //     if ($request->has('sub_kategori'))
+    //     {
+    //         $categories = Category::where('sub_kategori', $request->sub_kategori);
+    //     }
 
-        // if ($request->has('jurusan'))
-        // {
-        //     $categories = Category::where('jurusan', $request->jurusan);
-        // }
+    //     if ($request->has('jurusan'))
+    //     {
+    //         $categories = Category::where('jurusan', $request->jurusan);
+    //     }
 
-        // $categories = $categories->get();
+    //     $categories = $categories->get();
 
-        //cari mentor
-        $user = User::where('name', 'like', '%' . $request->search . '%')->get();
+    //     $user = User::where('name', 'like', '%' . $request->search . '%')->get();
 
-        return view('qlp.searchmentor', compact('user'));
-    }
+    //     return view('qlp.searchmentor', compact('user'));
+    // }
 }
