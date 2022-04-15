@@ -15,7 +15,7 @@
             <span class="font-weight-bold ml-2">(4.9/5 dari 2839 Mentee)</span>
         </div>
         <div class="col-lg-6 px-5">            
-            <img src="{{ asset('img/jumbotron-home-new.png') }}" alt="Foto profil" style="max-width:450px;width:450px"  class="img-home">
+            <img src="{{ asset('img/jumbotron-home.png') }}" alt="Foto profil" style="max-width:450px;width:450px"  class="img-home">
         </div>
     </div>
 </div>
