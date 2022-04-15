@@ -84,7 +84,7 @@
                 @foreach($user as $key => $user)
                 <div class="card text-center">
                     <div class="card-body">
-                        <img src="{{ Storage::url($user->profile_picture) }}" alt="" class="">
+                        <img src="{{ 'img/uploads/'.$user->profile_picture  }}" alt="" width="300" class="">
                         <div class="mt-4">
                             <div class="fw-bold text-24">{{ $user-> name}}</div>
                             @foreach($user->expertise as $expertise)

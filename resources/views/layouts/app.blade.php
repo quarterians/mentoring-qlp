@@ -79,7 +79,7 @@
                                     <a href="" class="text-dark fw-semibold">About Us <i class="fas ms-1 fa-caret-down"></i></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="" class="text-dark fw-semibold">Consulting</a>
+                                    <a href="{{ url('/searchmentor') }}" class="text-dark fw-semibold">Consulting</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="" class="text-dark fw-semibold">Guide <i class="fas ms-1 fa-caret-down"></i></a>
