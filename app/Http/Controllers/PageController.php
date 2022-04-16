@@ -9,6 +9,7 @@ use App\Models\Jurusan;
 use App\Models\Category;
 use App\Models\Expertise;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
 
 class PageController extends Controller
 {
@@ -78,7 +79,25 @@ class PageController extends Controller
         $pillars = Pillar::all();
         $jurusan = Jurusan::all();
         
-        $user = User::where('name', 'like', '%' . $request->search . '%')->get();
+        $user = User::where('name', 'like', '%' . $request->search . '%');
+
+        if ($request->pillars) {
+            if ($request->expertise) {
+                $user->whereHas('expertise', function (Builder $query) use ($request){$query->where('expertises.id', $request->expertise);
+                });
+            } else {
+                $user->whereHas('expertise', function (Builder $query) use ($request){$query->where('pillar_id', $request->pillars);
+                });
+            }
+
+        }
+
+        if ($request->jurusan) {
+            $user->whereHas('jurusan', function (Builder $query) use ($request){$query->where('jurusan.id', $request->jurusan);
+            });
+        }
+
+        $user = $user->get();
 
         return view('qlp.searchmentor', compact('pillars', 'jurusan', 'user'));
     }
@@ -89,29 +108,4 @@ class PageController extends Controller
         return view('qlp.e_formreview');
     }
 
-    // public function filterMentor(Request $request)
-    // {
-    //     $categories = Category::query();
-
-    //     if ($request->has('kategori'))
-    //     {
-    //         $categories = Category::where('kategori', $request->kategori);
-    //     }
-
-    //     if ($request->has('sub_kategori'))
-    //     {
-    //         $categories = Category::where('sub_kategori', $request->sub_kategori);
-    //     }
-
-    //     if ($request->has('jurusan'))
-    //     {
-    //         $categories = Category::where('jurusan', $request->jurusan);
-    //     }
-
-    //     $categories = $categories->get();
-
-    //     $user = User::where('name', 'like', '%' . $request->search . '%')->get();
-
-    //     return view('qlp.searchmentor', compact('user'));
-    // }
 }

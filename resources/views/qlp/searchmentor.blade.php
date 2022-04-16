@@ -37,7 +37,7 @@
                             <div class="w-10vw text-18 font-weight-semi">Filter Mentor :</div>
                         </div>
                         <div class="w-15vw ms-3">
-                            <select class="select-filter" id="kategori" name="kategori">
+                            <select class="select-filter" id="pillars" name="pillars">
                                 <option value="">Semua Kategori</option>
                                 @isset($pillars)
                                 @foreach ($pillars->unique('id') as $pillar)
@@ -47,7 +47,7 @@
                             </select>
                         </div>
                         <div class="w-15vw ms-3">
-                            <select class="select-filter" id="subkategori" name="sub_kategori">
+                            <select class="select-filter" id="expertise" name="expertise">
                                 <option value="">Semua Sub Kategori</option>
                                 @isset($subcategories)
                                 @foreach ($subcategories->unique('id') as $expertise)
@@ -115,9 +115,9 @@
     <script type="text/javascript">
         jQuery(document).ready(function()
         {
-            jQuery('select[name="kategori"]').on('change', function()
+            jQuery('select[name="pillars"]').on('change', function()
             {
-                var pillarID = jQuery('select[name="kategori"]').val();
+                var pillarID = jQuery('select[name="pillars"]').val();
                 //console log = printf
                 var url = '/subcategory/' + pillarID;
                 if(pillarID)
@@ -127,11 +127,11 @@
                         url : url,
                         success:function(data) {
                             console.log(data);
-                            $('#subkategori').empty(); // Kosongin sub category
-                            $('#subkategori').append('<option value="">Semua Sub Kategori</option>'); // tambah elemen baris 54
+                            $('#expertise').empty(); // Kosongin sub category
+                            $('#expertise').append('<option value="">Semua Sub Kategori</option>'); // tambah elemen baris 54
                             $.each(data, function(key, value){
                                 console.log(value['id']);
-                                $('#subkategori').append("<option value=" + value["id"] + ">" + value["expertise"] + "</option>");
+                                $('#expertise').append("<option value=" + value["id"] + ">" + value["expertise"] + "</option>");
                             });
                         }
                     });
