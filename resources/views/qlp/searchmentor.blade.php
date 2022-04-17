@@ -102,7 +102,7 @@
                                 </div>
                                 <div class="fw-normal text-20 mt-1">{{ $user->session_hour}} Hour</div>
                                 <div class="" style="margin-top: 5em;">
-                                    <a href="" class="btn btn-primary text-16 fw-normal">View Profile</a>
+                                    <a href="{{ url('/dev/mentor/'.$user->id) }}" class="btn btn-primary text-16 fw-normal">View Profile</a>
                                 </div>
                             </div>
                         </div>

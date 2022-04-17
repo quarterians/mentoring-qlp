@@ -1,9 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-
-
     <div class="header-container">
         <div class="container">
             <div class="row justify-content-center">
@@ -23,17 +20,15 @@
                             </ul>    
                         </div>
                     </div>
-                    <div class="row mentor-name">
-                        <div class="col-12">
-                            <h1 class="text-start">Nikki Morrison</h1>
+                    <div class="row mentor-name mt-4">
+                        <div class="col-12 mr-4">
+                            <h1 class="text-start p-1">{{ $user->name }}</h1>
                         </div>
-                        
                     </div>
                     <div class="row mentor-details">
-                        <div class="col-4">
+                        <div class="col-5">
                             <p class="text-center">Session Hours</p>
-                            <h2 class="text-center" >30 Menit</h2>
-
+                            <h2 class="text-center" >{{ $user->session_hour ?? "-" }}</h2>
                         </div>
                         <div class="col-3">
                             <p class="text-center">Mantee</p>
@@ -41,13 +36,13 @@
                         </div>
                         <div class="col-3">
                             <p class="text-center">Rattings</p>
-                            <h2 class="text-center">4,5</h2>
+                            <h2 class="text-center">{{ $user->rating ?? "-" }}</h2>
                         </div>
                     </div>
                     <div class="row mt-3 ms-4">
                         <div class="col-10">
                             <div class="d-grid">
-                                <a class="btn btn-submit" href="#" role="button">Konsultasi Sekarang!</a>
+                                <a class="btn btn-submit consult-now-btn" href="#" role="button">Konsultasi Sekarang!</a>
                             </div>
                         </div>
                         
@@ -59,16 +54,16 @@
 
     <div class="container container-profile">
         <div class="profile-details">
-            <h1 class="text-start">Profil Mentor</h1>
+            <h1 class="text-start mt-4">Profil Mentor</h1>
             <p class="text-start">
-                Studied as Public Accounting Student with extra leadership activities in Universitas Pelita Harapan, Marcel has proven his life principles named VASA (Value, Awareness, Solution, and Action) have given a change for him and surrounding. Marcel has now become XL Axiata Future Leaders Batch 10 Awardee with acceptance rate 0.46%, which is a prestigious global leadership program by PT XL Axiata Tbk.
+                {{ $user->profile ?? "-" }}
             </p>
         </div>
         <div class="profile-details pt-4">
             <h1 class="text-start">Riwayat pendidikan</h1>
             <p class="text-start fw-bold mb-0">Universitas Indonesia</p>
             <p class="text-start">
-                Bachelor of Accounting, Public Accounting
+                {{ $user->education_background ?? "-" }}
             </p>
         </div>
         <div class="profile-details pt-4">
@@ -126,9 +121,9 @@
             <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
             <!-- Calendly inline widget end -->
         </div>
-        <div class="profile-details pt-4">
+        <div class="profile-details pt-4 mb-4">
             <h1 class="text-start">Reviews</h1>
-            <div class="card mb-5 d-grid shadow" style="background-color: #FFF9F0; border-radius: 20px;">
+            <div class="card mb-5 d-grid shadow" style="background-color: #FFF9F0; border-radius: 20px; width: 100%;">
                 <div class="row align-items-center">
                     <div class="col-2">
                         <div class="text-center py-4">
@@ -143,7 +138,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card mb-5 d-grid shadow" style="background-color: #FFF9F0; border-radius: 20px;">
+            <div class="card mb-5 d-grid shadow card-mentor">
                 <div class="row align-items-center">
                     <div class="col-2">
                         <div class="text-center py-4">
@@ -158,7 +153,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card mb-5 d-grid shadow" style="background-color: #FFF9F0; border-radius: 20px;">
+            <div class="card mb-5 d-grid shadow card-mentor">
                 <div class="row align-items-center">
                     <div class="col-2">
                         <div class="text-center py-4">
@@ -173,7 +168,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card d-grid shadow" style="background-color: #FFF9F0; border-radius: 20px; margin-bottom: 189px;">
+            <div class="card d-grid shadow card-mentor">
                 <div class="row align-items-center">
                     <div class="col-2">
                         <div class="text-center py-4">

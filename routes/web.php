@@ -42,6 +42,7 @@ Route::prefix('dev')->group(function () {
     Route::group(['prefix' => 'mentors'], function () {
         Route::get('/', [PageController::class, 'mentors'])->name('mentors');
         Route::get('/detail/{id}', [PageController::class, 'mentorDetail'])->name('mentorDetail');
+        
     });
 
     Route::get('/FAQ', function () {
@@ -56,9 +57,7 @@ Route::prefix('dev')->group(function () {
     // Route::get('/findmentor', [PageController::class, 'filterMentor'])->name('filterMentor');
 
     // HALAMAN DETAIL MENTOR
-    Route::get('/mentor', function () {
-        return view('mentor.index');
-    });
+    Route::get('/mentor/{userId}', [PageController::class, 'showMentor']);
 
     Route::get('/searchmentor', [PageController::class, 'searchmentor'])->name('searchmentor');
 

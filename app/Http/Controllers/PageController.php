@@ -40,6 +40,13 @@ class PageController extends Controller
         return view('mentors', ['expertises' => $expertises, 'categories' => $categories]);
     }
 
+    public function showMentor($paramId) 
+    {
+        $user = User::find($paramId);
+        
+        return view('Mentor.index', compact('user'));
+    }
+
     public function guide()
     {
         return view('guide');
