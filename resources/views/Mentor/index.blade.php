@@ -56,26 +56,26 @@
         <div class="profile-details">
             <h1 class="text-start mt-4">Profil Mentor</h1>
             <p class="text-start">
-                {{ $user->profile ?? "-" }}
+                {!! $user->profile ?? "-" !!}
             </p>
         </div>
         <div class="profile-details pt-4">
             <h1 class="text-start">Riwayat pendidikan</h1>
             <p class="text-start fw-bold mb-0">Universitas Indonesia</p>
             <p class="text-start">
-                {{ $user->education_background ?? "-" }}
+                {!! $user->education_background ?? "-" !!}
             </p>
         </div>
         <div class="profile-details pt-4">
             <h1 class="text-start">Riwayat pekerjaan</h1>
             
-            {{ $user->job_background ?? "-" }}
+            {!! $user->job_background ?? "-" !!}
 
         </div>
         <div class="profile-details pt-4">
             <h1 class="text-start">Penghargaan</h1>
            
-            {{ $user->award ?? "-" }}
+            {!! $user->award ?? "-" !!}
         </div>
         <div class="profile-details pt-4">
             <h1 class="text-start">Topik Konsultasi</h1>
