@@ -8,6 +8,7 @@ use App\Models\Pillar;
 use App\Models\Jurusan;
 use App\Models\Category;
 use App\Models\Expertise;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -43,8 +44,12 @@ class PageController extends Controller
     public function showMentor($paramId) 
     {
         $user = User::find($paramId);
+
+        $testimonials = Testimonial::join('users', 'testimonials.user_id', 'users.id')
+        ->where('users.id', $paramId)
+        ->get();
         
-        return view('Mentor.index', compact('user'));
+        return view('Mentor.index', compact('user', 'testimonials'));
     }
 
     public function guide()
