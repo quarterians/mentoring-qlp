@@ -173,4 +173,7 @@ main {
 .margin-profile-picture {
   margin-right: 25px;
 }
+.resize-mentor-photo {
+  width: 95%;
+}
 /* profile picture mentor */

@@ -5,7 +5,11 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-3 margin-profile-picture">
-                    <img class="rounded-circle" src="{{ asset('/img/mentor_profile.png') }}" alt="">
+                    @if($user->profile_picture == NULL)
+                        <img class="rounded-circle" src="{{ asset('/qlp/img/qlp_logo.png') }}" alt="qlp_logo">
+                    @else
+                        <img class="rounded-circle resize-mentor-photo" src="{{ asset('img/uploads/'.$user->profile_picture) }}" alt="profile">
+                    @endif
                 </div>
                 <div class="col-5">
                     <div class="row">
