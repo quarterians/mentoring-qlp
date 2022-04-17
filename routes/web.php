@@ -53,12 +53,16 @@ Route::prefix('dev')->group(function () {
     //     return view('qlp.searchmentor');
     // });
 
-    Route::get('/findmentor', [PageController::class, 'filterMentor'])->name('filterMentor');
+    // Route::get('/findmentor', [PageController::class, 'filterMentor'])->name('filterMentor');
 
     // HALAMAN DETAIL MENTOR
     Route::get('/mentor', function () {
         return view('mentor.index');
     });
+
+    Route::get('/searchmentor', [PageController::class, 'searchmentor'])->name('searchmentor');
+
+    Route::get('/subcategory/{pillar_id}', [PageController::class, 'subcategory']);
 
 });
 
@@ -73,6 +77,7 @@ Route::get('/formtestimonial', [TestimonialController::class, 'createtestimonial
 Route::post('/formtestimonial', [TestimonialController::class,'storetestimonial']);
 
 Route::get('/searchmentor', [PageController::class, 'searchmentor'])->name('searchmentor');
+Route::get('/subcategory/{pillar_id}', [PageController::class, 'subcategory']);
 Route::get('/e_formreview', [PageController::class, 'e_formreview'])->name('e_formreview');
 
 

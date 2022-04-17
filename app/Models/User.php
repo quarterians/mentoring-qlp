@@ -55,8 +55,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function expertise() 
-    {        
-        return $this->hasMany(Expertise::class);
+    public function expertise()
+    {
+        return $this->belongsToMany(Expertise::class);
+    }
+
+    public function jurusan(){
+        return $this->belongsTo(Jurusan::class);
     }
 }
