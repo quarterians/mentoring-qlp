@@ -13,7 +13,8 @@ class TestimonialController extends Controller
     public function createtestimonial()
     {
         $rating=User::all();
-        $category=Category::all();
+        // $category=Category::all();
+        $category = Expertise::all();
         return view('mentee-ulasan', compact(
             'rating','category'
         ));

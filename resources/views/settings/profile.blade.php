@@ -64,7 +64,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>                                
+                            {{-- <tr>                                
                                 <td>
                                     @foreach ($categories as $category)
                                         @if ($category->pillar == "Personal Development")                                                                                                                                       
@@ -115,7 +115,7 @@
                                         @endif
                                     @endforeach
                                 </td>                            
-                            </tr>                          
+                            </tr>                           --}}
                         </tbody>
                     </table>
                     <small id="uniqueCodeHelp" class="form-text text-muted">Isi expertise sesuai dengan pengumuman kelulusan</small>                    

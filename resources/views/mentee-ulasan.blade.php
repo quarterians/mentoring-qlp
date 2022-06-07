@@ -13,6 +13,7 @@
                         @foreach ($errors->get('namamentee') as $msg)
                             <p class="text-danger">{{ $msg }}</p>
                         @endforeach
+                        <p></p>
                     </div>
                     <div class="form-input mb-xl-5">
                         <label for="jeniskelamin" class="fw-bold form-label">Jenis Kelamin</label>
@@ -20,11 +21,13 @@
                             <option selected value="lakilaki" name="jeniskelamin">Laki - Laki</option>
                             <option value="perempuan" name="jeniskelamin">Perempuan</option>
                         </select>
+                        <p></p>
                     </div>
                     <div class="form-input mb-xl-5">
                         <label for="email" class="fw-bold form-label">Email</label>
                         <input type="email" class="form-control" id="email" name="email"
                             placeholder="Isi email kamu disini">
+                            <p></p>
                     </div>
                     <div class="form-input mb-xl-5">
                         <label for="nama-mentor" class="fw-bold form-label">Nama Mentor</label>
@@ -34,6 +37,7 @@
                                 <option value="{{ $datamentor->id }}">{{ $datamentor->name }}</option>
                             @endforeach
                         </select>
+                        <p></p>
                     </div>
                     <div class="form-input mb-xl-5">
                         <label for="expertise" class="fw-bold form-label">Expertise Mentor</label>
@@ -43,6 +47,7 @@
                                 <option value="{{ $expertisementor->expertise }}">{{ $expertisementor->expertise }}</option>
                             @endforeach
                         </select>
+                        <p></p>
                     </div>
                     <div class="form-input mb-xl-5">
                         <label for="skor-expertise" class="fw-bold form-label">Skor Expertise</label>
@@ -54,6 +59,7 @@
                                 <option value="{{ $i }}">{{ $i }}</option>
                             @endfor
                         </select>
+                        <p></p>
                     </div>
 
                     <div class="form-input mb-xl-5">
@@ -66,11 +72,13 @@
                                 <option value="{{ $i }}">{{ $i }}</option>
                             @endfor
                         </select>
+                        <p></p>
                     </div>
                     <div class="form-input mb-xl-5">
                         <label for="datetime_consulting" class="fw-bold form-label">Tanggal dan Waktu Consulting</label>
                         <input type="datetime-local" name="datetime_consulting" class="form-control" id="birthdaytime"
                             placeholder="Klik untuk mengisi tanggal dan waktu konsultasi">
+                            <p></p>
                     </div>
                     <div class="form-input mb-xl-5">
                         <label for="exampleFormControlInput1" class="fw-bold form-label">Durasi Konsultasi</label>
@@ -85,6 +93,7 @@
                                 </p>
                             </div>
                         </div>
+                        <p></p>
                     </div>
                     <div class="form-input mb-xl-5">
                         <label for="alasan_consulting" class="fw-bold form-label">Alasan Konsultasi</label>
@@ -92,6 +101,7 @@
                             mengadakan sesi consulting dengan Mentor pilihan kamu ini?</p>
                         <textarea type="text" class="form-control" name="alasan_consulting"
                             placeholder="Isi alasan konsultasi kamu"></textarea>
+                            <p></p>
                     </div>
                     <div class="form-input mb-xl-5">
                         <label for="feedback" class="fw-bold form-label">Feedback Sesi Konsultasi</label>
@@ -99,13 +109,15 @@
                             telah berjalan?</p>
                         <textarea type="text" class="form-control" name="feedback"
                             placeholder="Isi feedback dari sesi konsultasi kamu"></textarea>
+                            <p></p>
                     </div>
                     <div class="form-input mb-xl-5">
                         <label for="ingin_diikuti_lagi" class="fw-bold form-label">Topik yang ingin diikuti kembali</label>
                         <input type="text" class="form-control" id="ingin_diikuti_lagi" name="ingin_diikuti_lagi"
                             placeholder="Isi topik yang kira-kira ingin kamu ikuti kembali">
+                            <p></p>
                     </div>
-
+                    <div> </div>
                     <div class="d-grid gap-2">
                         <button class="btn btn-submit btn-primary" type="submit">SUBMIT</button>
                     </div>
