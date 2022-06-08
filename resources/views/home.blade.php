@@ -11,8 +11,11 @@
     .card {
     background-color: #fff !important;
     }
+    li{
+        list-style-type: disc;
+    }
     li.nav-item {
-    list-style-type: none;
+        list-style-type: none;
     }
     @media screen and (min-width: 768px) {
     #jumbotron-heading {
