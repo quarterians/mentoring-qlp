@@ -5,14 +5,17 @@
 <div class="jumbotron">
     <div class="container px-3 mx-auto row">        
         <div class="col-lg-6">
-            <h1 class="font-weight-bold text-left mb-4" id="jumbotron-heading">Quarter Life Projects</h1>
-            <p style="font-size: 18px text-justify">Platform ini mempertemukan kamu dengan mentor pilihan yang siap membantu kamu dalam mengembangkan potensi di masa quarter-life</p>
-            <a href="#kategori"><button class="btn btn-primary btn-lg font-weight-semi mb-4" role="button" style="font-size: 16px; line-height: 140%; letter-spacing: 0.005em;">Lihat Kategori</button></a><br>
-            <div class="star-outer">
+            {{-- <h1 class="font-weight-bold text-left mb-4" id="jumbotron-heading">Quarter Life Projects</h1> --}}
+            <h1 class="font-weight-bold text-left mb-4" id="jumbotron-heading">Tahukah Kamu?</h1>
+            <h2 class="font-weight-bold text-left mb-1">Lebih dari 58% Gen Z Indonesia berumur 20-25 tahun mengalami Quarter Life Crisis</h2>
+            {{-- <p style="font-size: 18px text-justify">Platform ini mempertemukan kamu dengan mentor pilihan yang siap membantu kamu dalam mengembangkan potensi di masa quarter-life</p> --}}
+            <p style="font-size: 18px text-justify">Problem QLC umumnya berupa kebimbangan seputar arah & tujuan hidup, masa depan, kehidupan sosial, ketidaksiapan menghadapi dunia kerja, hingga eksistensi Gen Z sebagai manusia. Layanan konsultasi dengan seorang advisor akan membantumu mengatasi problem tersebut.</p>
+            <a href="searchmentor"><button class="btn btn-primary btn-lg font-weight-semi mb-4" role="button" style="font-size: 16px; line-height: 140%; letter-spacing: 0.005em;">Mulai Konsultasi Gratis Sekarang</button></a><br>
+            {{-- <div class="star-outer">
                 <div class="star-inner">
                 </div>
-            </div>
-            <span class="font-weight-bold ml-2">(4.9/5 dari 2839 Mentee)</span>
+            </div> --}}
+            {{-- <span class="font-weight-bold ml-2">(4.9/5 dari 2839 Mentee)</span> --}}
         </div>
         <div class="col-lg-6 px-5">            
             <img src="{{ asset('img/jumbotron-home-new.png') }}" alt="Foto profil" style="max-width:450px;width:450px"  class="img-home">
@@ -77,7 +80,7 @@
             <img src="{{ asset('img/home-section-3.png') }}" alt="Foto profil" style="max-width:450px;width:100%"  class="img-home">
         </div>
         <div class="col-lg-6">
-            <h1 class="font-weight-semi text-left mb-4" id="jumbotron-heading">Mentor Kami Akan Membantumu</h1>
+            <h1 class="font-weight-semi text-left mb-4" id="jumbotron-heading">Advisor kami akan membantumu!</h1>
             <p style="font-size: 18px text-justify">Merasa  aman dan nyaman dengan topik seputar kecemasan dengan hubungan pertemanan, percintaan, orang tua, kondisi keuangan ataupun karir. </p>
             <p style="font-size: 18px text-justify">Mengarahkan dan membimbing Coachee seputar Quarter Life Crisis yang sedang dialami. </p>
             <p style="font-size: 18px text-justify">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut magni similique tempora, necessitatibus consequatur optio velit quisquam. </p>

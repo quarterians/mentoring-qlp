@@ -1,286 +1,142 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quarter Life Project</title>
-    <!-- <link rel="stylesheet" href="qlp/css/style.css"> -->
-    <link href="{{ asset('/qlp/css/style.css') }}" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-            integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
-
-    @include('qlp.navbar')
-
+@extends('layouts.app')
+@section('content')
     <section class="text-dark bg-bubble text-center mentor-section">
         <div class="container">
-            <h1 class="text-leading mb-2">Temukan mentormu sekarang!</h1>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia reprehenderit laudantium <br/> aliquam iure aperiam minima at non doloribus, ipsum, dolor, nulla alias<br/> omnis? Hic quis optio minima aliquid assumenda aspernatur.</p>
-            <div class="text-leading1 fw-semibold mt-5">
-                Bingung cara booking mentor? <a href="" class="text-orange">klik disini</a>
+            <h1 class="font-weight-semi mb-3">Konsultasikan problem kamu <br> dengan advisor kami!</h1>
+            <p>Advisor kami merupakan orang-orang yang terpanggil untuk membantu menyelesaikan permasalahan kamu dan memberikan guidance berdasarkan pengalaman atau expertise yang mereka miliki. Kamu dapat memilih sendiri advisor yang kamu inginkan dan memulai sesi konsultasi secara gratis!</p>
+            <div class="text-24 fw-semibold mt-5">
+                Bingung cara booking mentor? <a href="https://docs.google.com/presentation/d/1rQ2hxmdz744dqFMUXvTGHLQd8dN2r46AZ8zBmCDo0kc/edit?usp=sharing" class="text-orange">klik disini</a>
             </div>
         </div>
     </section>
-    <section class="search py-4">
+    <section id="filter_searchmentor">
         <div class="container">
-            <div class="flex-search align-items-center">
-                <div class="text-24 fw-semibold">Cari Mentor :</div>
-                <div class="ms-4 search-mentor-width">
-                    <div class="box-search flex align-items-center">
+            <form action="" id="form-filtering" class="p-0" style="background-color:#F5F5F5">
+                <section class="search filter">
+                    <div class="flex-search align-items-center mb-3">
+                        <div class="w-10vw text-18 font-weight-semi">Cari Mentor :</div>
+                        <div class="ms-3 search-mentor-width">
+                            <div class="box-search flex align-items-center">
+                                <div class="">
+                                    <i class="text-16 fa fa-search"></i>
+                                </div>
+                                <form action="/searchmentor" method="GET">
+                                    <div class="ms-2 w-100">
+                                        <input type="text" class="form" placeholder="Search" name=search>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="text-18 ms-5 font-weight-semi search-all-width">Cari Semua Mentor :</div>
                         <div class="">
-                            <i class="text-16 fa fa-search"></i>
-                        </div>
-                        <div class="ms-2 w-100">
-                            <input type="text" class="form" placeholder="Search" id="">
+                            <button class="btn btn-primary shadow-sm fw-semibold" onchange="sorting()">Cari Semua</button>
                         </div>
                     </div>
-                </div>
-                <div class="text-24 ms-5 fw-semibold search-all-width">Cari Semua Mentor :</div>
-                <div class="">
-                    <a href="" class="btn shadow-sm fw-semibold">Cari Semua</a>
-                </div>
-            </div>
+                    <div class="flex align-items-center">
+                        <div class="">
+                            <div class="w-10vw text-18 font-weight-semi">Filter Mentor :</div>
+                        </div>
+                        <div class="w-15vw ms-3">
+                            <select class="select-filter" id="pillars" name="pillars">
+                                <option value="">Semua Kategori</option>
+                                @isset($pillars)
+                                @foreach ($pillars->unique('id') as $pillar)
+                                <option value="{{$pillar->id}}">{{$pillar->pillar}}</option>
+                                @endforeach
+                                @endisset
+                            </select>
+                        </div>
+                        <div class="w-15vw ms-3">
+                            <select class="select-filter" id="expertise" name="expertise">
+                                <option value="">Semua Sub Kategori</option>
+                                @isset($subcategories)
+                                @foreach ($subcategories->unique('id') as $expertise)
+                                <option value="{{$expertise->id}}">{{$expertise->expertise}}</option>
+                                @endforeach
+                                @endisset
+                            </select>
+                        </div>
+                        <div class="w-15vw ms-3">
+                            <select class="select-filter" id="jurusan" name="jurusan">
+                                <option value="">Semua Jurusan</option>
+                                @isset($jurusan)
+                                @foreach ($jurusan->unique('id') as $jurusan)
+                                <option value="{{$jurusan->id}}">{{$jurusan->jurusan}}</option>
+                                @endforeach
+                                @endisset
+                            </select>
+                        </div>
+                    </div>
+                </section>
+        
+                <script>
+                    function sorting()
+                    {
+                        document.querySelector('#form-filtering').submit();
+                    }
+                </script>
+            </form>
         </div>
     </section>
-    <section class="filter">
+    <section id="list_mentor">
         <div class="container">
-            <div class="flex align-items-center">
-                <div class="">
-                    <div class="text-24 fw-semibold">Filter Mentor:</div>
-                </div>
-                <div class="w-15vw ms-3">
-                    <select class="select-filter" id="" name="kategori">
-                        <option value="">Semua Kategori</option>
-                        @foreach ($categories->unique('kategori') as $kategori)
-                            <option value=""> </option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="w-15vw ms-3" name="sub_kategori">
-                    <select class="select-filter" id="">
-                        <option value="">Semua Sub Kategori</option>
-                        @foreach ($categories->unique('sub_kategori') as $sub_kategori)
-                            <option value=""> </option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="w-15vw ms-3">
-                    <select class="select-filter" id="" name="jurusan">
-                        <option value="">Semua Jurusan</option>
-                        @foreach ($categories->unique('jurusan') as $jurusan)
-                            <option value=""> </option>
-                        @endforeach
-                    </select>
+            <div class="mentor-list py-8">
+                <div class="grid-4">
+                    @foreach($user as $key => $user)
+                    <div class="card text-center py-3" style="width: auto;">
+                        <div class="card-body" style="align-items: center ;">
+                        <div class="image">
+                            @if($user->profile_picture == NULL)
+                            <img src="{{ asset('/qlp/img/qlp_logo.png') }}" alt="">
+                            @else
+                            <img src="{{ asset('img/uploads/'.$user->profile_picture) }}" alt="">
+                            @endif
+                        </div>
+                            <div class="mt-4">
+                                <div class="h-10vw fw-bold text-18">{{ $user-> name}}</div>
+                                @foreach($user->expertise as $expertise)
+                                <div class="fw-normal text-18 mt-1">{{ $expertise-> expertise }} </div>
+                                @endforeach
+                                <div class="mt-3">
+                                    <small>Total Session</small>
+                                </div>
+                                <div class="fw-normal text-20 mt-1">{{ $user->session_hour}} Hour</div>
+                                <div class="" style="margin-top: 5em;">
+                                    <a href="" class="btn btn-primary text-16 fw-normal">View Profile</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </section>
-    <section class="mentor-list py-8">
-        <div class="container">
-            <div class="grid-4">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <img src="{{ asset('/qlp/img/1.png') }}" alt="" class="">
-                        <div class="mt-4">
-                            <div class="fw-bold text-24">Irvan Tantowi</div>
-                            <div class="fw-normal text-20 mt-1">UI/UX Designer</div>
-                            <div class="mt-3">
-                                <small>Total Session</small>
-                            </div>
-                            <div class="fw-normal text-20 mt-1">5 Sessions</div>
-                            <div class="" style="margin-top: 5em;">
-                                <a href="" class="btn text-16 fw-normal">View Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card text-center">
-                    <div class="card-body">
-                        <img src="{{ asset('/qlp/img/2.png') }}" alt="" class="">
-                        <div class="mt-4">
-                            <div class="fw-bold text-24">Irvan Tantowi</div>
-                            <div class="fw-normal text-20 mt-1">UX Researcher</div>
-                            <div class="mt-3">
-                                <small>Total Session</small>
-                            </div>
-                            <div class="fw-normal text-20 mt-1">5 Sessions</div>
-                            <div class="" style="margin-top: 5em;">
-                                <a href="" class="btn text-16 fw-normal">View Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card text-center">
-                    <div class="card-body">
-                        <img src="{{ asset('/qlp/img/3.png') }}" alt="" class="">
-                        <div class="mt-4">
-                            <div class="fw-bold text-24">Diffa</div>
-                            <div class="fw-normal text-20 mt-1">UI/UX Designer</div>
-                            <div class="mt-3">
-                                <small>Total Session</small>
-                            </div>
-                            <div class="fw-normal text-20 mt-1">5 Sessions</div>
-                            <div class="" style="margin-top: 5em;">
-                                <a href="" class="btn text-16 fw-normal">View Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card text-center">
-                    <div class="card-body">
-                        <img src="{{ asset('/qlp/img/4.png') }}" alt="" class="">
-                        <div class="mt-4">
-                            <div class="fw-bold text-24">Jess Hart</div>
-                            <div class="fw-normal text-20 mt-1">UI/UX Designer</div>
-                            <div class="mt-3">
-                                <small>Total Session</small>
-                            </div>
-                            <div class="fw-normal text-20 mt-1">5 Sessions</div>
-                            <div class="" style="margin-top: 5em;">
-                                <a href="" class="btn text-16 fw-normal">View Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card text-center">
-                    <div class="card-body">
-                        <img src="{{ asset('/qlp/img/5.png') }}" alt="" class="">
-                        <div class="mt-4">
-                            <div class="fw-bold text-24">Nikki Morrison</div>
-                            <div class="fw-normal text-20 mt-1">Digital Marketing</div>
-                            <div class="mt-3">
-                                <small>Total Session</small>
-                            </div>
-                            <div class="fw-normal text-20 mt-1">5 Sessions</div>
-                            <div class="" style="margin-top: 5em;">
-                                <a href="" class="btn text-16 fw-normal">View Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card text-center">
-                    <div class="card-body">
-                        <img src="{{ asset('/qlp/img/6.png') }}" alt="" class="">
-                        <div class="mt-4">
-                            <div class="fw-bold text-24">Chelsea A</div>
-                            <div class="fw-normal text-20 mt-1">Visual Artist</div>
-                            <div class="mt-3">
-                                <small>Total Session</small>
-                            </div>
-                            <div class="fw-normal text-20 mt-1">5 Sessions</div>
-                            <div class="" style="margin-top: 5em;">
-                                <a href="" class="btn text-16 fw-normal">View Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card text-center">
-                    <div class="card-body">
-                        <img src="{{ asset('/qlp/img/7.png') }}" alt="" class="">
-                        <div class="mt-4">
-                            <div class="fw-bold text-24">Robert Joss</div>
-                            <div class="fw-normal text-20 mt-1">Business Analyst</div>
-                            <div class="mt-3">
-                                <small>Total Session</small>
-                            </div>
-                            <div class="fw-normal text-20 mt-1">5 Sessions</div>
-                            <div class="" style="margin-top: 5em;">
-                                <a href="" class="btn text-16 fw-normal">View Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card text-center">
-                    <div class="card-body">
-                        <img src="{{ asset('/qlp/img/8.png') }}" alt="" class="">
-                        <div class="mt-4">
-                            <div class="fw-bold text-24">Alyssa Ray</div>
-                            <div class="fw-normal text-20 mt-1">Content Writer</div>
-                            <div class="mt-3">
-                                <small>Total Session</small>
-                            </div>
-                            <div class="fw-normal text-20 mt-1">5 Sessions</div>
-                            <div class="" style="margin-top: 5em;">
-                                <a href="" class="btn text-16 fw-normal">View Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card text-center">
-                    <div class="card-body">
-                        <img src="{{ asset('/qlp/img/9.png') }}" alt="" class="">
-                        <div class="mt-4">
-                            <div class="fw-bold text-24">Bella Morisson</div>
-                            <div class="fw-normal text-20 mt-1">Photographer</div>
-                            <div class="mt-3">
-                                <small>Total Session</small>
-                            </div>
-                            <div class="fw-normal text-20 mt-1">5 Sessions</div>
-                            <div class="" style="margin-top: 5em;">
-                                <a href="" class="btn text-16 fw-normal">View Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card text-center">
-                    <div class="card-body">
-                        <img src="{{ asset('/qlp/img/10.png') }}" alt="" class="">
-                        <div class="mt-4">
-                            <div class="fw-bold text-24">Berta Wan</div>
-                            <div class="fw-normal text-20 mt-1">Editor</div>
-                            <div class="mt-3">
-                                <small>Total Session</small>
-                            </div>
-                            <div class="fw-normal text-20 mt-1">5 Sessions</div>
-                            <div class="" style="margin-top: 5em;">
-                                <a href="" class="btn text-16 fw-normal">View Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card text-center">
-                    <div class="card-body">
-                        <img src="{{ asset('/qlp/img/11.png') }}" alt="" class="">
-                        <div class="mt-4">
-                            <div class="fw-bold text-24">Garry Morris</div>
-                            <div class="fw-normal text-20 mt-1">Videographer</div>
-                            <div class="mt-3">
-                                <small>Total Session</small>
-                            </div>
-                            <div class="fw-normal text-20 mt-1">5 Sessions</div>
-                            <div class="" style="margin-top: 5em;">
-                                <a href="" class="btn text-16 fw-normal">View Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card text-center">
-                    <div class="card-body">
-                        <img src="{{ asset('/qlp/img/12.png') }}" alt="" class="">
-                        <div class="mt-4">
-                            <div class="fw-bold text-24">John Alexander</div>
-                            <div class="fw-normal text-20 mt-1">Content Writer</div>
-                            <div class="mt-3">
-                                <small>Total Session</small>
-                            </div>
-                            <div class="fw-normal text-20 mt-1">5 Sessions</div>
-                            <div class="" style="margin-top: 5em;">
-                                <a href="" class="btn text-16 fw-normal">View Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    @include('qlp.footer')
-</body>
-</html>
+    <script type="text/javascript">
+        jQuery(document).ready(function()
+        {
+            jQuery('select[name="pillars"]').on('change', function()
+            {
+                var pillarID = jQuery('select[name="pillars"]').val();
+                //console log = printf
+                var url = '/subcategory/' + pillarID;
+                if(pillarID)
+                {
+                    jQuery.ajax({
+                        type : "GET",
+                        url : url,
+                        success:function(data) {
+                            console.log(data);
+                            $('#expertise').empty(); // Kosongin sub category
+                            $('#expertise').append('<option value="">Semua Sub Kategori</option>'); // tambah elemen baris 54
+                            $.each(data, function(key, value){
+                                console.log(value['id']);
+                                $('#expertise').append("<option value=" + value["id"] + ">" + value["expertise"] + "</option>");
+                            });
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+@endsection

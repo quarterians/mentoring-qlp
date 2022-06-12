@@ -4962,6 +4962,20 @@ a.badge-dark:focus, a.badge-dark.focus {
   align-items: center ;
 }
 
+#list_mentor .card .image{
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  margin: auto;
+}
+
+#list_mentor .card .image img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 .testi{
   font-size: 13px;
 }
