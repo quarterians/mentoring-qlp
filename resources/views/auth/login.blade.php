@@ -4,7 +4,7 @@
 <div class="row mx-auto">                
     <div class="col-xl-6 px-5 py-4">                        
         <h1 class="font-weight-bolder">Login</h1>
-        <small id="loginAlert" class="form-text text-muted mb-4">Section ini hanya diperuntukkan mentor saja</small>                    
+        <small id="loginAlert" class="form-text text-center text-muted mb-4">Section ini hanya diperuntukkan mentor saja</small>                    
         <form method="POST" action="{{ route('login') }}" class="my-2">
             @csrf            
             <div class="form-group">                                

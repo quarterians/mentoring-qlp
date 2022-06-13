@@ -36,8 +36,6 @@
     
     <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
     
-
-
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{{ asset('/js/app.js') }}" defer></script>
@@ -79,7 +77,7 @@
                                     <a href="" class="text-dark fw-semibold">About Us <i class="fas ms-1 fa-caret-down"></i></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="" class="text-dark fw-semibold">Program</a>
+                                    <a href="{{ url('/searchmentor') }}" class="text-dark fw-semibold">Consulting</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="" class="text-dark fw-semibold">Guide <i class="fas ms-1 fa-caret-down"></i></a>

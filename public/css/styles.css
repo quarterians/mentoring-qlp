@@ -155,3 +155,25 @@ footer .text-semi:hover{
 main {
   min-height: 100vh;
 }        
+
+/* mentor card */
+.card-mentor {
+  background-color: #FFF9F0; 
+  border-radius: 20px; 
+  width: 100%;
+}
+.consult-now-btn {
+  width: 100%;
+  background: #F1753E;
+  color: #FFF;
+}
+/* mentor card */
+
+/* profile picture mentor */
+.margin-profile-picture {
+  margin-right: 25px;
+}
+.resize-mentor-photo {
+  width: 95%;
+}
+/* profile picture mentor */

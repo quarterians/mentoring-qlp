@@ -318,6 +318,14 @@ a {
   width: 19.4vw;
 }
 
+.w-10vw {
+  width: 6.5vw;
+}
+
+.h-10vw {
+  height: 3vw;
+}
+
 .nav .nav-item {
   float: left;
   margin: 0 15px;
@@ -365,11 +373,11 @@ a {
 }
 
 .search .search-mentor-width {
-  width: 35vw;
+  width: 30vw;
 }
 
 .search .search-all-width {
-  width: 15vw;
+  width: 10vw;
 }
 
 .filter .select-filter {
@@ -377,7 +385,7 @@ a {
   background: #e0e0e0;
   border: 1px solid #e0e0e0;
   padding: 10px 15px;
-  font-size: 18px;
+  font-size: 15px;
   border-radius: 10px;
 }
 
@@ -398,7 +406,7 @@ a {
 }
 
 .mentor-list .card .card-body {
-  padding: 50px;
+  padding: 20px;
 }
 
 .credit {
