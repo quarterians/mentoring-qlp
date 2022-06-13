@@ -11,7 +11,7 @@
     .card {
     background-color: #fff !important;
     }
-    ul.konsul li{
+    li{
         list-style-type: disc;
     }
     li.nav-item {
@@ -105,7 +105,7 @@
         </div>
         <div class="col-lg-6 my-auto">
             <h5 class="font-weight-semi text-left mb-4" id="jumbotron-heading">Berkonsultasi dengan advisor kami akan membantumu dalam hal:</h5>
-            <ul class="konsul">
+            <ul>
                 <li><em>Personal advice terkait problem quarter life crisis</em></li>
                 <li><em>Personal assistance untuk job preparation</em></li>
                 <li><em>Personal guidance untuk masalah relasional</em></li>
