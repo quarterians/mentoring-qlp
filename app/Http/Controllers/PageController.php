@@ -68,7 +68,9 @@ class PageController extends Controller
     public function settingProfile() {
         $user = Auth::user();
         // $expertises = Expertise::with('category')->where('user_id', $user->id)->get();
+        $expertises = 12;
         // $categories = Category::all();
+        return view('settings.profile', ['user' => $user, 'expertises' => $expertises]);
         // return view('settings.profile', ['user' => $user, 'expertises' => $expertises, 'categories' => $categories]);
     }
 

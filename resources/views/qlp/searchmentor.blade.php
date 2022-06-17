@@ -2,10 +2,10 @@
 @section('content')
     <section class="text-dark bg-bubble text-center mentor-section">
         <div class="container">
-            <h1 class="font-weight-semi mb-3">Temukan mentormu sekarang!</h1>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia reprehenderit laudantium <br/> aliquam iure aperiam minima at non doloribus, ipsum, dolor, nulla alias<br/> omnis? Hic quis optio minima aliquid assumenda aspernatur.</p>
+            <h1 class="font-weight-semi mb-3">Konsultasikan problem kamu <br> dengan advisor kami!</h1>
+            <p>Advisor kami merupakan orang-orang yang terpanggil untuk membantu menyelesaikan permasalahan kamu dan memberikan guidance berdasarkan pengalaman atau expertise yang mereka miliki. Kamu dapat memilih sendiri advisor yang kamu inginkan dan memulai sesi konsultasi secara gratis!</p>
             <div class="text-24 fw-semibold mt-5">
-                Bingung cara booking mentor? <a href="" class="text-orange">klik disini</a>
+                Bingung cara booking mentor? <a href="https://docs.google.com/presentation/d/1rQ2hxmdz744dqFMUXvTGHLQd8dN2r46AZ8zBmCDo0kc/edit?usp=sharing" class="text-orange">klik disini</a>
             </div>
         </div>
     </section>
