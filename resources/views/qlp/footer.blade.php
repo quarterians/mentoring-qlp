@@ -31,7 +31,7 @@
                         Partnership
                     </div>
                     <ul class="list-nostyle mt-3 pl-0">
-                        <li><a href="" class="text-semi text-16">Informasi Partnership</a></li>
+                        <li><a href="" class="text-semi text-16">Informasi Partnerships</a></li>
                     </ul>
                 </div>
                 <div class="mb-3">
